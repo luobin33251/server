@@ -2,9 +2,95 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Index</title>
+    <link rel="stylesheet" href="./layui/css/layui.css">
+    <link rel="stylesheet" href="./css/index/index.css">
 </head>
 <body>
-    <h1>213123qeqwe111</h1>
+    <div>
+        <!-- 头部分 -->
+        <div class="layui-header header">
+            <div class="layui-main">
+                <span class="content">小说分销平台</span>
+                <img class="image" src="./images/logo.png">
+
+                <ul class="layui-nav">
+                    <li class="layui-nav-item">
+                        <a href="#"><i class="layui-icon">&#xe645;</i>系统公告</a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="#">小说书会<span class="layui-nav-more"></span> </a>
+                    </li>
+                    <li class="layui-nav-item">
+                        <dl class="layui-nav-child layui-anim layui-anim-upbit">
+                            <dd><a href="#">一</a></dd>
+                            <dd><a href="#">二</a></dd>
+                            <dd><a href="#">三</a></dd>
+                        </dl>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- 导航部分 -->
+        <div class="nav">
+            <ul class="layui-nav layui-nav-tree"  lay-filter="nav">
+                <li class="layui-nav-item layui-this">
+                    <a href="#"><i class="layui-icon">&#xe6ed;</i><span>通知公告</span></a>
+                </li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span tab-id="dataCount">数据统计</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span tab-id="orderMannage">订单管理</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span tab-id="userSearch">用户查询</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span>小说列表</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span>小说上传</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span>促销活动</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span>推广链接</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span>关键字回复</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span>大模板消息</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span>代理管理</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span>我的结算单</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span>代理结算单</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span>代理打款</span></a></li>
+                <li class="layui-nav-item"><a href="#"><i class="layui-icon">&#xe63c;</i><span>邀请列表</span></a></li>
+            </ul>
+        </div>
+        <!-- 主体部分 -->
+        <div class="layui-tab main" lay-allowClose="true" lay-filter="tab">
+            <ul class="layui-tab-title">
+                <li class="layui-this">通知公告</li>
+            </ul>
+
+            <div class="layui-tab-content">
+                <div class="layui-tab-item layui-show">1</div>
+                <div class="layui-tab-item" lay-id="dataCountContent">数据统计</div>
+                <div class="layui-tab-item">3</div>
+                <div class="layui-tab-item">4</div>
+                <div class="layui-tab-item">5</div>
+                <div class="layui-tab-item">6</div>
+            </div>
+        </div>
+        <script src="./layui/layui.js"></script>
+        <script>
+            layui.use(['element'], function () {
+                var $ = layui.jquery;
+                var element = layui.element();
+                element.on('nav(nav)', function (data) {
+                    var title = $(data).find('span').text();
+                    var tabId = $(data).find('span').attr('tab-id');
+                    var tab_li = $('.layui-tab').find('li').each(function () {
+                        console.log($(this).text())
+                        if(tabId == $(this).text()) {
+                            console.log(title)
+                            return false;
+                        }
+                    });
+                    element.tabAdd('tab', {
+                        title: title
+                        ,content: '选项卡的内容' //支持传入html
+                        ,id: tabId
+                    });
+                })
+            })
+        </script>
+    </div>
 </body>
 </html>

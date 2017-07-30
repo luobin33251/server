@@ -1,0 +1,41 @@
+.header {
+    height: 59px;
+    background-color: #393D49;
+}
+
+.header .layui-nav {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    background: none;
+}
+
+.header .content{
+    position: absolute;
+    left: 0;
+    top: 16px;
+    color: #FBFBFB;
+    font-size: medium;
+}
+.header .layui-main {
+    width: 95%;
+}
+
+.header .image {
+    position: absolute;
+    left: 120px;
+    top: 16px;
+}
+.layui-icon {
+    padding: 5px;
+}
+
+.nav {
+    float: left;
+}
+
+.main {
+    float: left;
+}
+

@@ -9,6 +9,7 @@ public class BaseConfig extends JFinalConfig{
 
     }
 
+    //
     public void configRoute(Routes routes) {
         routes.add("/", IndexController.class);
     }
